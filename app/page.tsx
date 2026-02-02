@@ -4,9 +4,16 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 
 export default function Home() {
-  const [status, setStatus] = useState("Test en cours...");
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+const [status, setStatus] = useState(`URL: ${url ? "OK" : "MISSING"} | KEY: ${key ? "OK" : "MISSING"}`);
+
 
   useEffect(() => {
+    console.log("SUPABASE URL =", url);
+console.log("SUPABASE KEY present =", !!key);
+
     const test = async () => {
       const { data, error } = await supabase.from("tournaments").select("id").limit(1);
       if (error) setStatus("❌ Erreur Supabase: " + error.message);
