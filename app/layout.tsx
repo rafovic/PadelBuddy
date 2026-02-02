@@ -1,6 +1,15 @@
-export const metadata = { title: "PadelBuddy" };
+import type { Metadata } from "next";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: "PadelBuddy",
+  description: "Trouver des partenaires pour des tournois de padel",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="fr">
       <body>{children}</body>
