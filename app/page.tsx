@@ -9,6 +9,7 @@ const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 const [status, setStatus] = useState(`URL: ${url ? "OK" : "MISSING"} | KEY: ${key ? "OK" : "MISSING"}`);
 
+console.log("SUPABASE URL =", process.env.NEXT_PUBLIC_SUPABASE_URL);
 
   useEffect(() => {
     console.log("SUPABASE URL =", url);
